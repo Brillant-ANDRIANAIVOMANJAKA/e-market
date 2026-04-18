@@ -24,8 +24,14 @@ export function Footer() {
       <div className="container-x grid gap-8 py-12 md:grid-cols-2 lg:grid-cols-5">
         <div className="lg:col-span-2">
           <div className="flex items-center gap-2 mb-3">
-            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-brand font-bold">e</div>
-            <p className="text-xl font-extrabold text-white">market</p>
+            <div className="h-9 w-9 rounded-full overflow-hidden">
+              <img
+                src="/e-market.png"
+                alt="profile"
+                className="h-full w-full object-cover"
+              />
+            </div>
+            <p className="text-xl font-extrabold text-white">e-market</p>
           </div>
           <p className="text-sm opacity-70 max-w-sm">
             Your modern marketplace for furniture, fashion, electronics and more — daily deals, premium quality, fast shipping worldwide.
