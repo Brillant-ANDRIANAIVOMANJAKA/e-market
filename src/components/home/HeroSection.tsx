@@ -1,0 +1,87 @@
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
+import heroBedroom from "@/assets/hero-bedroom.jpg";
+import promoPillows from "@/assets/promo-pillows.jpg";
+import promoSofa from "@/assets/promo-sofa.jpg";
+
+export function HeroSection() {
+  return (
+    <section className="grid gap-4 lg:grid-cols-[1fr_280px]">
+      {/* Main hero */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.98 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6 }}
+        className="relative overflow-hidden rounded-md bg-secondary"
+      >
+        <img
+          src={heroBedroom}
+          alt="Modern bedroom furniture sale"
+          width={1280}
+          height={640}
+          className="h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-white/70 via-white/30 to-transparent dark:from-background/70" />
+        <div className="absolute inset-0 flex flex-col items-center justify-center px-8 text-center">
+          <motion.p
+            initial={{ y: 12, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            className="text-sm font-semibold uppercase tracking-widest text-foreground/80"
+          >
+            Office furniture
+          </motion.p>
+          <motion.h1
+            initial={{ y: 16, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.3 }}
+            className="mt-2 text-4xl font-extrabold text-brand md:text-6xl"
+          >
+            SALE UP TO 50% OFF
+          </motion.h1>
+          <motion.p
+            initial={{ y: 16, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.4 }}
+            className="mt-2 max-w-md text-sm text-foreground/70"
+          >
+            They key is to have every key, the key to open every door. We don't seem them, we will never see them.
+          </motion.p>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.97 }}
+            className="mt-5 inline-flex items-center gap-2 rounded-full bg-brand px-7 py-3 text-sm font-bold text-brand-foreground hover:bg-brand-hover transition"
+          >
+            Shop Now <ArrowRight className="h-4 w-4" />
+          </motion.button>
+        </div>
+      </motion.div>
+
+      {/* Side promos */}
+      <div className="grid gap-4 grid-cols-2 lg:grid-cols-1">
+        <motion.div
+          initial={{ x: 20, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ delay: 0.2 }}
+          className="relative overflow-hidden rounded-md bg-gradient-to-br from-amber-100 to-orange-200 p-4 dark:from-amber-900/30 dark:to-orange-900/30"
+        >
+          <p className="text-xs font-bold uppercase tracking-widest text-foreground/70">Colorful</p>
+          <p className="text-lg font-extrabold">Pillows</p>
+          <p className="mt-1 text-xs">Starts at <span className="text-brand font-bold">Ar29000.99</span></p>
+          <img src={promoPillows} alt="Colorful pillows" loading="lazy" className="mt-2 h-24 w-full object-contain" />
+        </motion.div>
+        <motion.div
+          initial={{ x: 20, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ delay: 0.3 }}
+          className="relative overflow-hidden rounded-md bg-secondary p-4"
+        >
+          <p className="text-lg font-extrabold text-brand">Ar450 000.89</p>
+          <p className="text-xs font-semibold uppercase tracking-wider">Interior Design</p>
+          <a href="#" className="mt-1 inline-block text-xs font-bold uppercase border-b border-brand text-brand">Shop now →</a>
+          <img src={promoSofa} alt="Modern sofa" loading="lazy" className="mt-2 h-24 w-full object-contain" />
+        </motion.div>
+      </div>
+    </section>
+  );
+}

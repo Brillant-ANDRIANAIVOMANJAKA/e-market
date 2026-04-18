@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* eMarket-inspired design system. All colors HSL. */
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 220 40% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 40% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 40% 12%;
+
+    /* Marketplace navy */
+    --primary: 220 45% 17%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Vivid yellow CTA */
+    --brand: 45 100% 51%;
+    --brand-foreground: 220 45% 12%;
+    --brand-hover: 42 100% 45%;
+
+    --secondary: 210 16% 96%;
+    --secondary-foreground: 220 40% 12%;
+
+    --muted: 210 16% 96%;
+    --muted-foreground: 220 10% 46%;
+
+    --accent: 45 100% 94%;
+    --accent-foreground: 38 92% 35%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 45 100% 51%;
+
+    --radius: 0.375rem;
+
+    --header-top: 220 45% 12%;
+    --header-bar: 220 45% 17%;
+    --sale: 45 100% 51%;
+
+    --shadow-card: 0 1px 3px hsl(220 40% 12% / 0.06), 0 1px 2px hsl(220 40% 12% / 0.04);
+    --shadow-hover: 0 12px 32px -8px hsl(220 40% 12% / 0.18);
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 220 40% 12%;
+    --sidebar-primary: 45 100% 51%;
+    --sidebar-primary-foreground: 220 45% 12%;
+    --sidebar-accent: 210 16% 96%;
+    --sidebar-accent-foreground: 220 40% 12%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 45 100% 51%;
+  }
+
+  .dark {
+    --background: 220 30% 8%;
+    --foreground: 210 20% 95%;
+
+    --card: 220 30% 11%;
+    --card-foreground: 210 20% 95%;
+
+    --popover: 220 30% 11%;
+    --popover-foreground: 210 20% 95%;
+
+    --primary: 210 20% 95%;
+    --primary-foreground: 220 30% 8%;
+
+    --brand: 45 100% 55%;
+    --brand-foreground: 220 45% 8%;
+    --brand-hover: 42 100% 48%;
+
+    --secondary: 220 25% 16%;
+    --secondary-foreground: 210 20% 95%;
+
+    --muted: 220 25% 16%;
+    --muted-foreground: 220 10% 65%;
+
+    --accent: 220 25% 18%;
+    --accent-foreground: 45 100% 65%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 25% 18%;
+    --input: 220 25% 18%;
+    --ring: 45 100% 55%;
+
+    --header-top: 220 35% 5%;
+    --header-bar: 220 35% 10%;
+
+    --shadow-card: 0 1px 3px hsl(0 0% 0% / 0.4);
+    --shadow-hover: 0 12px 32px -8px hsl(0 0% 0% / 0.6);
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+  html { scroll-behavior: smooth; }
+}
+
+@layer components {
+  .container-x { @apply mx-auto w-full max-w-[1400px] px-4; }
+
+  .product-card {
+    @apply bg-card border border-border rounded-md overflow-hidden transition-all duration-300;
+    box-shadow: var(--shadow-card);
+  }
+  .product-card:hover { box-shadow: var(--shadow-hover); }
+
+  .badge-sale {
+    @apply absolute top-2 right-2 inline-flex items-center justify-center
+           h-9 w-9 rounded-full text-[11px] font-bold text-white;
+    background: hsl(var(--sale));
+    box-shadow: 0 2px 8px hsl(var(--sale) / 0.4);
+  }
+
+  .section-title {
+    @apply inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground
+           text-sm font-bold uppercase tracking-wider rounded-t-md;
+  }
+
+  .price-now { @apply text-base font-bold; color: hsl(var(--brand)); }
+  .price-old { @apply text-xs text-muted-foreground line-through; }
+
+  .nav-link {
+    @apply px-4 py-3 text-sm font-semibold uppercase tracking-wide text-white/90
+           hover:text-white transition-colors relative;
+  }
+  .nav-link:hover::after {
+    content: ""; @apply absolute left-4 right-4 bottom-1 h-0.5 bg-white;
+  }
+}
